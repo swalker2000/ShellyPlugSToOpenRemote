@@ -10,6 +10,19 @@ repositories {
     mavenLocal()//add this
 }
 
+
+task FatJar(type: Jar) {
+    project.configurations.getByName("implementation").setCanBeResolved(true)
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    manifest {
+        attributes 'Implementation-Title': 'ShellyPtugSToOpenRemote'
+        attributes 'Main-Class': 'com.greenbridge.MainKt'
+        archiveBaseName = 'ShellyPtugSToOpenRemoteFat'
+    }
+    from { configurations.implementation.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
 dependencies {
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
     implementation 'com.squareup.okhttp3:okhttp:4.12.0'
