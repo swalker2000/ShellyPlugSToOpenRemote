@@ -1,5 +1,4 @@
-package com.greenbridge.com.greenbridge
-
+package com.greenbridge
 
 import connector.OpenRemoteConnectorFactory
 

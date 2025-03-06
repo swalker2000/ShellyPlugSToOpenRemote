@@ -1,4 +1,4 @@
-package com.greenbridge.com.greenbridge
+package com.greenbridge
 
 import okhttp3.Call
 import okhttp3.OkHttpClient
@@ -26,11 +26,11 @@ class ShellyPlugS(private val url : String) {
     }
 
     fun on(){
-        getRequest("http://192.168.0.15/relay/0?turn=on")
+        getRequest("http://$url/relay/0?turn=on")
     }
 
     fun off(){
-        getRequest("http://192.168.0.15/relay/0?turn=off")
+        getRequest("http://$url/relay/0?turn=off")
     }
 
     private fun getRequest(uri : String) : String
